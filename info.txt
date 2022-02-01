@@ -1,0 +1,13 @@
+DEMO Paramo Technologies
+
+1. Revisar instalacion node --> version desde cmd
+2. npm  init desde la consola 
+3. npm install cypress --save-dev --> Instalacion
+4. node_modules\.bin\cypress open --> Con esto revisamos que este todo ok
+
+   4.1 si hay errores es posible que alguna dependencia no se haya instalado bien
+       4.1.1 npm install -g npx --->npx instalacion
+       4.1.2 npm cypress install -->force 
+
+5. si instalamos npx --> npx cypress open
+6. ctrl +c abrir consola 
