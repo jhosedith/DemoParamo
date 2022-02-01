@@ -132,4 +132,5 @@ describe("Realizar un registro de un nuevo usuario", () => {
             cy.wait(1000);
         })
 
+
     }) //Cierre describe
