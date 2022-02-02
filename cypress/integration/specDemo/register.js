@@ -3,6 +3,7 @@ import Registration_PO from '../../support/pageObjects/registration_PO'
 require('cypress-xpath')
 
 describe("Realizar un registro de un nuevo usuario", () => {
+        //En este spec lo que hacemos es generar los casos a probar y verificar sus datos de acuerdo a los assert que buscamos.
 
         const master = new Registration_PO()
         it("Iniciar page Registration", () => {
@@ -47,7 +48,7 @@ describe("Realizar un registro de un nuevo usuario", () => {
         })
 
         it("Aceptar los terminos y condiciones", () => {
-            //es una manera de evitar que cypress me valide si existe o no el valor que quiero encontrar y luego validamos que este check
+            //con esta funcion validamos si existe o no el valor que quiero encontrar y luego validamos que este check
             master.seleccionarCheckTermsAndCondition("#core__protected_modules_user_yiiForm_RegistrationForm_terms_and_conditions")
         })
 
@@ -87,6 +88,7 @@ describe("Realizar un registro de un nuevo usuario", () => {
         })
 
         it("Escribir en el campo ciudad y verificar el placeholder", () => {
+            //Aca en el metodo escribirCity, le estoy pasando como parametros lo que quiero escribir, con que id y cual debe ser su placeholder
             master.escribirCity("Barquis", "#core__protected_modules_user_yiiForm_RegistrationForm_city", 'City')
             cy.wait(1000);
         })
@@ -116,6 +118,8 @@ describe("Realizar un registro de un nuevo usuario", () => {
             cy.wait(1000);
         })
 
+        //En esta seccion estamos validando que para el campo EMAIL aparezca el mensaje de email invalido
+        //Luego seteamos el valor correcto y verificamos que este todo ok.
         it("Verificar el mensaje de invalid Email", () => {
             master.validarMensajeError("Invalid email.", "#core__protected_modules_user_yiiForm_RegistrationForm_email_em_")
             cy.wait(1000);

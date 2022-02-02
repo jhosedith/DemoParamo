@@ -1,13 +1,17 @@
 class BasePage {
+    //#region Metodos para extraer Element del DOM a traves de ids , xpath y clasName
 
+    //Aca le indicamos que el campo a buscar tiene que ser visible y luego tipear el name
     setCampoVisible(name, key) {
         cy.get(key).should("be.visible").type(name);
     }
 
+    //Aca usamos el metodo invoke para verificar que en el atributo placeholder contenga el type indicado.
     getCampoPlaceholder(type, key) {
         cy.get(key).invoke('attr', 'placeholder').should('contain', type)
     }
 
+    //con esta expresion indicamos que el atributo no este chequeado y forzamos un check y luego verificamos que este chequeado
     setRadioButton(key) {
         cy.get(key).should('not.be.checked').check({ force: true }).should('be.checked')
     }
@@ -21,6 +25,7 @@ class BasePage {
         cy.get('.special-radio__row--small > span').should('not.be.empty')
     }
 
+    //Con esta propiedad verificamos que el campo no este vacio.
     getCampoNotBeEmpty(key) {
         cy.get(key).should('not.be.empty')
     }
@@ -29,6 +34,7 @@ class BasePage {
         cy.get(key).should('be.visible').click()
     }
 
+    //Con esta propiedad buscamos con el xpath y verificamos que este visible
     clickCampoVisibleXpath(key) {
         cy.xpath(key).should('be.visible').click()
     }

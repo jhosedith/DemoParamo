@@ -1,6 +1,7 @@
 import BasePage from "./basePage";
 
 class Tournaments_PO extends BasePage {
+    //En esta clase heredamos de la clase basePage y de esta manera reutilizamos las propiedades para otros PO.
 
     visitTournaments() {
         let tiempo = 5000
