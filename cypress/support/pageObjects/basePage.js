@@ -49,6 +49,27 @@ class BasePage {
         cy.get(key).clear() // limpia campos input
     }
 
+    clickCampoContains(key, valor) {
+        cy.get(key).contains(valor).click()
+    }
+
+    clickCampoContainsForce(key, valor) {
+        cy.get(key).contains(valor).click({ force: true })
+    }
+
+    clickCampo(key) {
+        cy.get(key).click()
+    }
+
+    verificarCampo(key) {
+        cy.get(key).should("not.exist")
+    }
+
+    clickCampoVisibleForceXpathContain(key) {
+        cy.xpath(key).should('not.be.visible').click({ force: true })
+    }
+
+
 } //final
 
 export default BasePage;
