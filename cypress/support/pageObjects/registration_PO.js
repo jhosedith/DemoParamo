@@ -2,12 +2,15 @@ import BasePage from "./basePage";
 
 class Registration_PO extends BasePage {
 
+    //En esta clase heredamos de la clase basePage y de esta manera reutilizamos las propiedades para otros PO.
+
     visitRegistration() {
         let tiempo = 5000
         cy.visit("https://demo.casino/user/registration")
         cy.wait(tiempo)
     }
 
+    //Aca creamos una funcion para validar que el campo este visible y que su placeholder es el indicado.
     escribirEnCampoEmail(name, key, type) {
         this.setCampoVisible(name, key)
         this.getCampoPlaceholder(type, key)
@@ -57,6 +60,7 @@ class Registration_PO extends BasePage {
         this.setCampoVisible(name, key)
     }
 
+    //Aca seleccionamos el radioButton de USD
     seleccionarRadioButtonUSD(key) {
         this.setRadioButton(key)
     }
@@ -65,12 +69,14 @@ class Registration_PO extends BasePage {
         this.setRadioButton(key)
     }
 
+    //Aca seleccionamos el radioButton de USD
     seleccionarNoBonus(key, key2) {
         this.setRadioButton(key)
         this.getCampoNotBeChecked(key2)
 
     }
 
+    //En esta funcion verificamos el campo este chequeado y en su info no este vacio
     verificarCampoBonus(key, key2) {
         this.getCampoChecked(key)
         this.getCampoNotBeEmpty(key2)
